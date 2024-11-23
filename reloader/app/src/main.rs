@@ -1,6 +1,5 @@
 #![cfg_attr(not(test), no_std)]
 #![no_main]
-#![feature(type_alias_impl_trait)]
 
 use core::cell::RefCell;
 
@@ -100,7 +99,7 @@ async fn main(s: Spawner) {
         let uicr = UICR_ADDRESS as *mut u32;
 
         // Enable NVMC so we can write UICR
-        let nvmc = unsafe { &*pac::NVMC::ptr() };
+        let nvmc = &*pac::NVMC::ptr();
         nvmc.config.write(|w| w.wen().wen());
         while nvmc.ready.read().ready().is_busy() {}
         core::ptr::write_volatile(uicr, BOOTLOADER_DEST);
