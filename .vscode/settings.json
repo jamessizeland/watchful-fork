@@ -1,8 +1,18 @@
 {
+    "[rust]": {
+        "editor.formatOnSave": true
+    },
     "rust-analyzer.cargo.target": "thumbv7em-none-eabi",
     "rust-analyzer.check.allTargets": false,
     "rust-analyzer.check.extraArgs": [
         "--target=thumbv7em-none-eabi",
     ],
-    "editor.formatOnSave": true
+    "rust-analyzer.linkedProjects": [
+        "firmware/app/Cargo.toml",
+        "firmware/boot/Cargo.toml",
+        "pinetime-flash/Cargo.toml",
+        "reloader/app/Cargo.toml",
+        "reloader/boot/Cargo.toml",
+        "watchful-ui/Cargo.toml",
+    ]
 }
